@@ -6,7 +6,7 @@ sidebar:
 
 There are currently three ways to convert a regular Obsidian note into a hybrid Markdown+Fountain note.
 
-## 🎨 Frontmatter Properties: Cssclasses
+## 🎨 (A) Frontmatter Properties: cssclasses
 
 ```md
 ---
@@ -25,13 +25,13 @@ I'm here to save the day!
 Pros:
 
 - Technically this plugin just adds styling, so cssclasses may semantically make sense for you.
-- You can use Search or Dataview to filter on the `[cssclasses]` Property.
+- You can use Search or Dataview to filter on the `[cssclasses:fountain]` Property.
 
 Cons:
 
 - I guess some people don't like frontmatter, you have to make sure you declare for each note.
 
-## 🔖 Frontmatter Properties: Tag
+## 🔖 (B) Frontmatter Properties: tags
 
 ```md
 ---
@@ -56,10 +56,11 @@ Cons:
 
 - Again, I guess some people don't like frontmatter, you have to make sure you declare for each note.
 
-## 📄 File Extension
+## 📄 (C) File Extension
 
 ```md
-<!-- This file is named "Introduction.fountain.md" -->
+<!-- This file is named `Introduction.fountain.md` -->
+<!-- You can also name it `Introduction.fountain`, but you will need obsidian-custom-file-extensions-plugin -->
 
 EXT. SOME PLACE - DAY
 
@@ -72,12 +73,13 @@ I'm here to save the day!
 Pros:
 
 - No additional frontmatter.
-- If using external tools outside of Obsidian, you can recognize this file as Fountain by filename, instead of parsing the frontmatter.
+- If integrating with external tools outside of Obsidian, you can recognize this file as Fountain by its filename, instead of parsing the frontmatter.
 
 Cons
 
-- You will need an Obsidian plugin like [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin) to be able to open it like normal. It's super simple though.
+- To some people, `.fountain.md` might look ugly. But this is intended and good as it's kept standard and treated as a `.md` file by apps like Obsidian.
+- If you want to use `.fountain` file extension directly, you will need an Obsidian plugin like [MeepTech/obsidian-custom-file-extensions-plugin](https://github.com/MeepTech/obsidian-custom-file-extensions-plugin) to be able to open it like normal. It's super simple though!
 
 ---
 
-Note that a note only needs at least one of these attributes to be recognized for Fountain. It also makes no difference if more than one attribute is applied!
+Be aware that a note just only needs **at least one** of these attributes to be recognized for Fountain. If more than one attribute is applied, then it still works!
