@@ -112,3 +112,5 @@ Fully exposed CSS Variables, for every syntax token, to tweak to pixel perfectio
 
 > [!TIP]
 > Full documentation wiki can be found at [obsidian-fountain-editor.chuangcaleb.com](https://obsidian-fountain-editor.chuangcaleb.com). Check it out!
+
+You may also want to check out the similar [Obsidian Fountain plugin](https://github.com/bgrundmann/obsidian-fountain)!
