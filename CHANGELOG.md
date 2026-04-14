@@ -1,5 +1,11 @@
 # obsidian-fountain-editor
 
+## 1.4.4
+
+### Patch Changes
+
+- Minify builds artifacts
+
 ## 1.4.3
 
 ### Patch Changes

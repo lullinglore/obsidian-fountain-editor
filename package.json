@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-fountain-editor",
-	"version": "1.4.3",
+	"version": "1.4.4",
 	"description": "Obsidian plugin for Fountain (screenplay) syntax highlighting in the editor",
 	"main": "main.js",
 	"type": "module",
@@ -22,6 +22,7 @@
 		"@changesets/cli": "^2.29.2",
 		"@rollup/plugin-commonjs": "^28.0.2",
 		"@rollup/plugin-node-resolve": "^16.0.0",
+		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^12.1.2",
 		"@types/node": "^22.13.9",
 		"builtin-modules": "5.0.0",
