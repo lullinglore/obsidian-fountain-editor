@@ -37,6 +37,7 @@ const jsConfig = {
 		typescript({
 			sourceMap: !isProduction,
 			inlineSourceMap: false,
+			outDir: OUT_DIR,
 			inlineSources: !isProduction,
 			rootDir: "./src",
 		}),
