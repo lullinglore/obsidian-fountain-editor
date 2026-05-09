@@ -1,5 +1,11 @@
 # obsidian-fountain-editor
 
+## 1.4.6
+
+### Patch Changes
+
+- chore: update deps
+
 ## 1.4.5
 
 ### Patch Changes
@@ -41,40 +47,40 @@ Note that while the Transition token now extends the character set, the suffix `
 
 ```ts
 const sceneHeadingPrefixesMap = {
- // - Latin: INT, EXT, EST, I/E, INT/EXT
- latin: ["int", "ext", "est", "i/e", "int/ext"],
+	// - Latin: INT, EXT, EST, I/E, INT/EXT
+	latin: ["int", "ext", "est", "i/e", "int/ext"],
 
- // - Russian: ИНТ, ЭКСТ, ЭСТ, И/Э, ИНТ/ЭКСТ
- russian: ["инт", "экст", "эст", "и/э", "инт/экст"],
+	// - Russian: ИНТ, ЭКСТ, ЭСТ, И/Э, ИНТ/ЭКСТ
+	russian: ["инт", "экст", "эст", "и/э", "инт/экст"],
 
- // - Ukrainian: ІНТ, ЕКСТ, ЕСТ, І/Е, ІНТ/ЕКСТ
- ukrainian: ["інт", "екст", "ест", "і/е", "інт/екст"],
+	// - Ukrainian: ІНТ, ЕКСТ, ЕСТ, І/Е, ІНТ/ЕКСТ
+	ukrainian: ["інт", "екст", "ест", "і/е", "інт/екст"],
 
- // - Bulgarian: ВН, ИЗН, ВН/ИЗН
- bulgarian: ["вн", "изн", "вн/изн"],
+	// - Bulgarian: ВН, ИЗН, ВН/ИЗН
+	bulgarian: ["вн", "изн", "вн/изн"],
 
- // - Serbian/Macedonian: ВН, НАДВ, ВН/НАДВ
- serbianMacedonian: ["вн", "надв", "вн/надв"],
+	// - Serbian/Macedonian: ВН, НАДВ, ВН/НАДВ
+	serbianMacedonian: ["вн", "надв", "вн/надв"],
 
- // - Greek: ΕΣΩ. (INT), ΕΞΩ. (EXT), ΕΣΩ/ΕΞΩ. (INT/EXT)
- //   Sometimes ΕΣΤ. for "establishing"
- greek: ["εσω", "εξω", "εσω/εξω", "εστ"],
+	// - Greek: ΕΣΩ. (INT), ΕΞΩ. (EXT), ΕΣΩ/ΕΞΩ. (INT/EXT)
+	//   Sometimes ΕΣΤ. for "establishing"
+	greek: ["εσω", "εξω", "εσω/εξω", "εστ"],
 
- // - Hebrew: פנ. (INT = פנימי), חוץ. (EXT), פנ/חוץ. (INT/EXT)
- //   NB: Hebrew is RTL but regex still matches left-to-right in source
- hebrew: ["פנ", "חוץ", "פנ/חוץ"],
+	// - Hebrew: פנ. (INT = פנימי), חוץ. (EXT), פנ/חוץ. (INT/EXT)
+	//   NB: Hebrew is RTL but regex still matches left-to-right in source
+	hebrew: ["פנ", "חוץ", "פנ/חוץ"],
 
- // - Arabic: د. (داخل = INT), خ. (خارج = EXT), د/خ. (INT/EXT)
- //   Sometimes spelled in full: داخل, خارج
- arabic: ["د", "خ", "د/خ", "داخل", "خارج", "داخل/خارج"],
+	// - Arabic: د. (داخل = INT), خ. (خارج = EXT), د/خ. (INT/EXT)
+	//   Sometimes spelled in full: داخل, خارج
+	arabic: ["د", "خ", "د/خ", "داخل", "خارج", "داخل/خارج"],
 
- // - Turkish: İÇ (INT), DIŞ (EXT), İÇ/DIŞ
- turkish: ["iç", "dış", "iç/dış"],
+	// - Turkish: İÇ (INT), DIŞ (EXT), İÇ/DIŞ
+	turkish: ["iç", "dış", "iç/dış"],
 
- // - French/Spanish/Italian (they often keep English, but some use native)
- //   French: INTÉR. / EXT. ; Spanish: INT. / EXT. ; Italian: INT. / EST.
- //   Adding common alternatives
- romance: ["intér", "inter", "est", "ext"],
+	// - French/Spanish/Italian (they often keep English, but some use native)
+	//   French: INTÉR. / EXT. ; Spanish: INT. / EXT. ; Italian: INT. / EST.
+	//   Adding common alternatives
+	romance: ["intér", "inter", "est", "ext"],
 };
 ```
 
