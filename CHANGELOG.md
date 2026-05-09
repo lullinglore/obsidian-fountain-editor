@@ -1,5 +1,11 @@
 # obsidian-fountain-editor
 
+## 1.4.5
+
+### Patch Changes
+
+- feat: include underscore in character regex (<https://github.com/chuangcaleb/obsidian-fountain-editor/issues/68>)
+
 ## 1.4.4
 
 ### Patch Changes
