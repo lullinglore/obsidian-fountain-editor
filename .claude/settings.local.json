@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"d:\\\\Documents\\\\Resources\\\\Forks\\\\obsidian-fountain-editor\" -Depth 2)",
+      "Bash(Select-Object -Property FullName, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)",
+      "WebSearch",
+      "WebFetch(domain:docs.obsidian.md)"
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import {Compartment} from "@codemirror/state";
 import {Plugin, type TFile} from "obsidian";
 import {fountainPlugin} from "./editor/plugin.js";
+import {prewarmCache, registerReadingViewPostProcessor} from "./reading-view.js";
 import {
 	DEFAULT_SETTINGS,
 	type FountainEditorSettings,
@@ -29,18 +30,25 @@ export default class FountainPlugin extends Plugin {
 
 		// this.registerEditorExtension(fountainPlugin);
 		this.registerEditorExtension(fountainPlugin(this.settings));
+		registerReadingViewPostProcessor(this, this.settings);
 
 		// Ensure `fountain` class is added to relevant leaves
 		this.app.workspace.on("active-leaf-change", () => {
 			updateClass(this.app);
 		});
-		this.app.workspace.on("file-open", () => {
+		this.app.workspace.on("file-open", (file) => {
 			updateClass(this.app);
+			if (file) prewarmCache(this, this.settings, file.path);
 		});
 		this.app.metadataCache.on("changed", (file: TFile) => {
 			onMetadataChanged(this.app, file);
 		});
 		updateClass(this.app);
+
+		// Pre-warm the classifier cache for the initially active file so the
+		// post-processor can run synchronously (required for PDF export).
+		const initialFile = this.app.workspace.getActiveFile();
+		if (initialFile) prewarmCache(this, this.settings, initialFile.path);
 	}
 
 	async loadSettings() {

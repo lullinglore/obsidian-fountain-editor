@@ -2,7 +2,10 @@
 	--file-line-width: var(--fountain-line-width);
 }
 
-.markdown-source-view.fountain .cm-content {
+/* =================== Shared: editor + reading view =================== */
+
+.markdown-source-view.fountain .cm-content,
+.markdown-preview-view.fountain {
 	/* ----------------------------- main tokens ------------------------------ */
 
 	.cm-fountain-scene-heading {
@@ -10,7 +13,6 @@
 	}
 
 	.cm-fountain-parenthetical,
-	.cm-fountain-character-extension,
 	.cm-fountain-lyrics {
 		font-style: italic;
 	}
@@ -18,40 +20,29 @@
 	.cm-fountain-transition {
 		font-weight: var(--font-bold);
 		text-align: right;
-		.cm-quote-1:not(.cm-formatting) {
-			color: var(--text-normal);
-		}
 	}
 
 	.cm-fountain-centered {
 		font-weight: var(--font-bold);
 		text-align: center;
-		.cm-quote-1:not(.cm-formatting) {
-			color: var(--text-normal);
-		}
 	}
 
 	/* transition and centered tokens, must override Obsidian blockquote styles */
 	.cm-fountain-centered,
 	.cm-fountain-transition {
-		/* reset any styles set by plugins */
 		font-style: normal;
 		background-color: inherit;
-		/* set on element.style by blockquote */
-		text-indent: 0 !important;
 		padding-inline-start: 0 !important;
-		/* remove left border */
 		&::before {
 			display: none;
 		}
 	}
 
 	.cm-fountain-character {
-		/* in themes like Minimal, width is overridden by a more specific selector. We will need to set the CSS Variable instead. */
-		--line-width: var(--fountain-character-line-width);
 		width: var(--fountain-character-line-width);
 
 		body:not(.fountain-theme-fix) & {
+			position: relative;
 			left: calc(
 				(var(--fountain-line-width) - var(--fountain-character-line-width)) / 2
 			);
@@ -60,10 +51,10 @@
 
 	.cm-fountain-lyrics,
 	.cm-fountain-dialogue {
-		--line-width: var(--fountain-dialogue-line-width);
 		width: var(--fountain-dialogue-line-width);
 
 		body:not(.fountain-theme-fix) & {
+			position: relative;
 			left: calc(
 				(var(--fountain-line-width) - var(--fountain-dialogue-line-width)) / 2
 			);
@@ -71,10 +62,10 @@
 	}
 
 	.cm-fountain-parenthetical {
-		--line-width: var(--fountain-parenthetical-line-width);
 		width: var(--fountain-parenthetical-line-width);
 
 		body:not(.fountain-theme-fix) & {
+			position: relative;
 			left: calc(
 				(
 						var(--fountain-line-width) -
@@ -83,6 +74,52 @@
 					2
 			);
 		}
+	}
+
+	.cm-fountain-boneyard {
+		color: var(--text-faint);
+	}
+}
+
+/* =================== Editor-only additions =================== */
+
+.markdown-source-view.fountain .cm-content {
+	.cm-fountain-parenthetical,
+	.cm-fountain-character-extension,
+	.cm-fountain-lyrics {
+		font-style: italic;
+	}
+
+	.cm-fountain-transition {
+		.cm-quote-1:not(.cm-formatting) {
+			color: var(--text-normal);
+		}
+	}
+
+	.cm-fountain-centered {
+		.cm-quote-1:not(.cm-formatting) {
+			color: var(--text-normal);
+		}
+	}
+
+	/* set on element.style by blockquote */
+	.cm-fountain-centered,
+	.cm-fountain-transition {
+		text-indent: 0 !important;
+	}
+
+	/* in themes like Minimal, width is overridden by a more specific selector */
+	.cm-fountain-character {
+		--line-width: var(--fountain-character-line-width);
+	}
+
+	.cm-fountain-lyrics,
+	.cm-fountain-dialogue {
+		--line-width: var(--fountain-dialogue-line-width);
+	}
+
+	.cm-fountain-parenthetical {
+		--line-width: var(--fountain-parenthetical-line-width);
 	}
 
 	/* ----------------------------- formatting ------------------------------- */
@@ -108,5 +145,14 @@
 	.cm-fountain-formatting-centered {
 		visibility: hidden;
 		display: inherit;
+	}
+}
+
+/* =================== Reading-view-only additions =================== */
+
+.markdown-preview-view.fountain {
+	blockquote.cm-fountain-transition,
+	blockquote.cm-fountain-centered {
+		border-left: none;
 	}
 }

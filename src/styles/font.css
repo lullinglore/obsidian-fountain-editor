@@ -7,3 +7,23 @@
 		font-family: var(--fountain-font-family);
 	}
 }
+
+.markdown-preview-view.fountain {
+	[class*="cm-fountain-"]:not(
+			:is(.cm-fountain-synopsis, .cm-fountain-section)
+		) {
+		font-family: var(--fountain-font-family);
+	}
+}
+
+@media print {
+	[class*="cm-fountain-"]:not(:is(.cm-fountain-synopsis, .cm-fountain-section)) {
+		font-family: var(
+			--fountain-font-family,
+			"Courier Prime",
+			"Courier New",
+			"Courier",
+			monospace
+		);
+	}
+}
